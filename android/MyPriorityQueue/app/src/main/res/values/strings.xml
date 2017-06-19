@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Priority Queue</string>
+    <string name="title_Account">Account</string>
+    <string name="title_MyQueue">My Queue</string>
+    <string name="title_YourQueue">Your Queue</string>
+    <string name="title_activity_base_bottom_navigation">BaseBottomNavigationActivity</string>
+</resources>
