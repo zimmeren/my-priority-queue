@@ -5,18 +5,18 @@
         android:id="@+id/navigation_Account"
         android:enabled="true"
         android:icon="@drawable/ic_face_black_24dp"
-        android:title="@string/title_Account" />
+        android:title="@string/nav_title_Account" />
 
     <item
         android:id="@+id/navigation_MyQueue"
         android:enabled="true"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_MyQueue" />
+        android:title="@string/nav_title_MyQueue" />
 
     <item
         android:id="@+id/navigation_YourQueue"
         android:enabled="true"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="@string/title_YourQueue" />
+        android:title="@string/nav_title_YourQueue" />
 
 </menu>
