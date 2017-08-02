@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">My Priority Queue</string>
-    <string name="title_Account">Account TODO</string>
-    <string name="title_Account_Login">Account Login TODO</string>
-    <string name="title_Account_Creation">Account Creation TODO</string>
+    <string name="title_Account">My Account</string>
+    <string name="username">username</string>
+    <string name="signin">Sign In</string>
+    <string name="signout">Sign Out</string>
+
+    <string name="title_Account_Login">Account Login</string>
+    <string name="title_Account_Creation">Account Creation</string>
     <string name="title_MyQueue">My Queue TODO</string>
     <string name="title_YourQueue">Your Queue TODO</string>
 

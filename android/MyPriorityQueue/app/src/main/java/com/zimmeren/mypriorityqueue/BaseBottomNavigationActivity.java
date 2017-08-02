@@ -1,6 +1,5 @@
 package com.zimmeren.mypriorityqueue;
 
-import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,8 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.FrameLayout;
-
-import java.util.List;
 
 public class BaseBottomNavigationActivity extends AppCompatActivity {
 
