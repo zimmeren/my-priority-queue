@@ -1,5 +1,6 @@
 package com.zimmeren.mypriorityqueue;
 
+import android.accounts.Account;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -74,6 +75,19 @@ public class AccountFragment extends Fragment
     }
 
     @Override
+    public void onResume() {
+        //update account and logged in status from activity
+        AccountActivity activity = (AccountActivity)getActivity();
+        if(activity.getLoggedInStatus()) {
+            username = activity.getAccount();
+            setLoggedInState();
+        } else {
+            setLoggedOutState();
+        }
+        super.onResume();
+    }
+
+    @Override
     public void onClick(View v){
         switch (v.getId()){
             case R.id.signinandout_btn:
@@ -98,9 +112,9 @@ public class AccountFragment extends Fragment
         signinsignoutBtn.setText(getString(R.string.signin));
     }
 
-    public void signInSignOutBtnPressed() {
+    private void signInSignOutBtnPressed() {
         if (loggedIn) {
-            if (mListener.onAccountLogoutFragmentSignOutRequest()) {
+            if (mListener.onAccountFragmentSignOutRequest()) {
                 setLoggedOutState();
             } else {
                 //alert user of failure
@@ -132,6 +146,6 @@ public class AccountFragment extends Fragment
     }
 
     public interface OnFragmentInteractionListener {
-        Boolean onAccountLogoutFragmentSignOutRequest();
+        Boolean onAccountFragmentSignOutRequest();
     }
 }

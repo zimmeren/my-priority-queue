@@ -4,6 +4,9 @@
     <string name="username">username</string>
     <string name="signin">Sign In</string>
     <string name="signout">Sign Out</string>
+    <string name="createnewaccount">Create New Account</string>
+    <string name="create">Create</string>
+    <string name="password">password</string>
 
     <string name="title_Account_Login">Account Login</string>
     <string name="title_Account_Creation">Account Creation</string>
