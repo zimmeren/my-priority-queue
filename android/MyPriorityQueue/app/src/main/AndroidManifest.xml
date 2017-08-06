@@ -11,18 +11,25 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".AccountActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyQueueActivity" />
+        <activity
+            android:name=".MyQueueActivity"
+            android:launchMode="singleInstance">
+        </activity>
         <activity
             android:name=".BaseBottomNavigationActivity"
             android:label="@string/title_activity_base_bottom_navigation" />
-        <activity android:name=".YourQueueActivity"></activity>
+        <activity
+            android:name=".YourQueueActivity"
+            android:launchMode="singleInstance">
+        </activity>
     </application>
 
 </manifest>

@@ -12,21 +12,25 @@ import android.widget.TextView;
 public class AccountFragment extends Fragment
     implements View.OnClickListener
 {
+    private static final String ARG_PARAM1 = "status";
+    private static final String ARG_PARAM2 = "user";
 
     private OnFragmentInteractionListener mListener;
     private TextView titleTextView;
     private TextView usernameTextView;
     private Button signinsignoutBtn;
-    private String username = "";
-    private Boolean loggedIn = false;
+    private Boolean loggedIn;
+    private String username;
 
     public AccountFragment() {
         // Required empty public constructor
     }
 
-    public static AccountFragment newInstance() {
+    public static AccountFragment newInstance(Boolean status, String user) {
         AccountFragment fragment = new AccountFragment();
         Bundle args = new Bundle();
+        args.putBoolean(ARG_PARAM1, status);
+        args.putString(ARG_PARAM2, user);
         fragment.setArguments(args);
         return fragment;
     }
@@ -34,6 +38,10 @@ public class AccountFragment extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            loggedIn = getArguments().getBoolean(ARG_PARAM1);
+            username = getArguments().getString(ARG_PARAM2);
+        }
     }
 
     @Override
@@ -77,7 +85,6 @@ public class AccountFragment extends Fragment
 
     private void setLoggedInState() {
         loggedIn = true;
-        username = "";
         usernameTextView.setText(username);
         usernameTextView.setVisibility(View.VISIBLE);
         signinsignoutBtn.setText(getString(R.string.signout));
@@ -93,13 +100,17 @@ public class AccountFragment extends Fragment
 
     public void signInSignOutBtnPressed() {
         if (loggedIn) {
-            if (mListener.onAccountLogoutFragmentInteraction()) {
+            if (mListener.onAccountLogoutFragmentSignOutRequest()) {
                 setLoggedOutState();
             } else {
                 //alert user of failure
             }
         } else {
-            mListener.onAccountTransitionFragmentInteraction("LoginFragment");
+            android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            LoginFragment loginFragment = LoginFragment.newInstance();
+            transaction.replace(R.id.account_container, loginFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
     }
 
@@ -121,7 +132,6 @@ public class AccountFragment extends Fragment
     }
 
     public interface OnFragmentInteractionListener {
-        Boolean onAccountLogoutFragmentInteraction();
-        void onAccountTransitionFragmentInteraction(String to);
+        Boolean onAccountLogoutFragmentSignOutRequest();
     }
 }

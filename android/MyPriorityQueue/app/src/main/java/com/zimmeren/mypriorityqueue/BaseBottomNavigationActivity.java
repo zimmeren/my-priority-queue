@@ -22,22 +22,19 @@ public class BaseBottomNavigationActivity extends AppCompatActivity {
                     Intent intent1 = new Intent(BaseBottomNavigationActivity.this, AccountActivity.class);
                     intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent1);
-                    finish();
-                    BaseBottomNavigationActivity.this.overridePendingTransition(0,0);
+                    overridePendingTransition(0,0);
                     break;
                 case R.id.navigation_MyQueue:
                     Intent intent2 = new Intent(BaseBottomNavigationActivity.this, MyQueueActivity.class);
                     intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent2);
-                    finish();
-                    BaseBottomNavigationActivity.this.overridePendingTransition(0,0);
+                    overridePendingTransition(0,0);
                     break;
                 case R.id.navigation_YourQueue:
                     Intent intent3 = new Intent(BaseBottomNavigationActivity.this, YourQueueActivity.class);
                     intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent3);
-                    finish();
-                    BaseBottomNavigationActivity.this.overridePendingTransition(0,0);
+                    overridePendingTransition(0,0);
                     break;
                 default:
                     return false;
