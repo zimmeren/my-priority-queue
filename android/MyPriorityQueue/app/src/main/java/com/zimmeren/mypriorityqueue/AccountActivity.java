@@ -19,14 +19,16 @@ public class AccountActivity extends BaseBottomNavigationActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        //TODO get account status from protected storage
-
-
-        AccountFragment accountFragment = AccountFragment.newInstance(loggedIn, account);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.account_container, accountFragment, "AccountFragment")
-                .commit();
+        if (savedInstanceState != null) {
+            loggedIn = savedInstanceState.getBoolean(ARG_PARAM1);
+            account = savedInstanceState.getString(ARG_PARAM2);
+        } else {
+            AccountFragment accountFragment = AccountFragment.newInstance(loggedIn, account);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.account_container, accountFragment, "AccountFragment")
+                    .commit();
+        }
     }
 
     @Override
@@ -34,15 +36,6 @@ public class AccountActivity extends BaseBottomNavigationActivity
         outState.putBoolean(ARG_PARAM1, loggedIn);
         outState.putString(ARG_PARAM2, account);
         super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
-            loggedIn = savedInstanceState.getBoolean(ARG_PARAM1);
-            account = savedInstanceState.getString(ARG_PARAM2);
-        }
-        super.onRestoreInstanceState(savedInstanceState);
     }
 
     @Override
