@@ -74,8 +74,10 @@ class MyQueueTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if (!dataService.updateItemsByAccount(account: account, items: tableData!)){
-            print("Failed to save my priority queue on view will dissapear")
+        if (tableData != nil) {
+            if (!dataService.updateItemsByAccount(account: account, items: tableData!)){
+                print("Failed to save my priority queue on view will dissapear")
+            }
         }
     }
     
